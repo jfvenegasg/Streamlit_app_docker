@@ -92,24 +92,24 @@ Luego en este servicio debemos crear un repositorio,el cual puede ser creado des
 
 ![crear repositorio](create_repo.png)
 
-Cuando creamos el repositorio elegimos el format como Docker,el mode como standard y la region en este caso la fijare en **southamerica-west1[Santiago]**.
+Cuando creamos el repositorio elegimos el format como Docker,el mode como standard y la region en este caso la fijare en **us-central1**.
 
 Una vez creado el repositorio configuramos de forma local nuestro docker para poder hacer push o pull a las imagenes.
 
 ``` dockerfile
-gcloud auth configure-docker southamerica-west1-docker.pkg.dev
+gcloud auth configure-docker us-central1-docker.pkg.dev
 ```
 
 Luego tenemos que etiquetar a nuestra stream_app con la ruta del directorio del repositorio de imagenes en la nube.
 
 ``` dockerfile
-docker tag stream_app:latest southamerica-west1-docker.pkg.dev/driven-saga-403916/docker-repo/stream_app:latest
+docker tag app_stream_py us-central1-docker.pkg.dev/eco-hangar-422805-p6/imagenes-docker/app_stream_py
 ```
 
 Una vez etiquetada la imagen,le podemos dar a push a la imagen de nuestra app.
 
 ``` dockerfile
-docker push southamerica-west1-docker.pkg.dev/driven-saga-403916/docker-repo/stream_app:latest
+docker push us-central1-docker.pkg.dev/eco-hangar-422805-p6/imagenes-docker/app_stream_py
 ```
 
 Si la imagen fue cargada correctamente la podremos ver en el repositorio de Artifact Registry como se ve en la imagen.
@@ -140,7 +140,7 @@ Finalmente si queremos acceder al servicio,podemos entrar al URL que se nos mues
 
 Se las dejo a continuación.
 
-https://stream-app-vvrixyvk3q-uc.a.run.app/
+https://app-stream-py-ipckdq4a7a-uc.a.run.app/
 
 Aca se una vista de la stream app.
 
